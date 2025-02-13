@@ -11,10 +11,9 @@
         @media screen and (max-width: 768px) { 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: Arial, sans-serif; margin: 0;
-    padding: 0; width:auto;overflow-x:hidden;overscroll-behaivor:contain;}
+    padding: 0; width:auto; overflow-x:hidden;overscroll-behavior:contain;}
             html{
-                overflow-x:hidden;overscroll-behaivor:contain;}
-            
+                overflow-x:hidden;overscroll-behavior:contain;}
   body::before {
 content: ''; 
 position: fixed; 
@@ -201,12 +200,23 @@ font-family: 'Times New Roman', Times, serif;
 
 
  }
-.feature-list {
-list-style-type: none; 
-padding-left: 0; 
-font-size: 18px;
-line-height: 1.5;
+ .feature-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
 
+.feature-list li {
+  padding-left: 35px;     /* Indent text */
+  text-indent: -35px;     /* Pull first line back */
+  margin-bottom: 15px;    /* Add spacing between items */
+}
+
+.feature-list i {
+  font-size: 22px;
+  margin-right: 10px;
+  color: #333;
 }
 
 .features h2 {
@@ -429,6 +439,7 @@ animation: wordAppear 5s linear forwards;
       gap: 10px;
       animation: moveRight 5s linear forwards;
   }
+
   .top-right-images img {
         width: 150px; /* Reduce size */
         height: 150px; /* Reduce size */
@@ -458,6 +469,7 @@ animation: wordAppear 5s linear forwards;
     padding: 10px 25px;
     z-index: 1000;
     gap: 30px;
+   
 }
 
 
@@ -468,11 +480,12 @@ animation: wordAppear 5s linear forwards;
     position: absolute;
     top: auto;
     left: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     height: auto;
     z-index: 1;
     display: block; 
-    margin-left:155px;
+    margin-left:140px;
+
    /* Adjust padding if needed */
 }
 
@@ -484,6 +497,7 @@ animation: wordAppear 5s linear forwards;
       gap: 25px;
       flex-wrap: wrap;
       z-index: 1001; 
+      display: none;
   }
 
   .footer-buttons a {
@@ -740,7 +754,7 @@ font:bold;
 .navbar {
   position: fixed;
   top: 20px;
-  left: 20px;
+  right: 20px;
   z-index: 1000;
   font-family: Arial, sans-serif;
 }
@@ -752,13 +766,14 @@ font:bold;
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
+  
 }
 
 .menu {
   display: none;
   position: absolute;
   top: 50px;
-  left: 0;
+  right: 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -879,13 +894,26 @@ font-family: 'Times New Roman', Times, serif;
 
 
    }
-.feature-list {
-list-style-type: none; 
-padding-left: 0; 
-font-size: 20px;
-line-height: 1.5;
-
+   .feature-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 20px;
+  line-height: 1.5;
 }
+
+.feature-list li {
+  padding-left: 35px;     /* Indent text */
+  text-indent: -35px;     /* Pull first line back */
+  margin-bottom: 15px;    /* Add spacing between items */
+}
+
+.feature-list i {
+  font-size: 22px;
+  margin-right: 10px;
+  color: #333;
+}
+
+
 
 .features h2 {
         font-size: 28px;
@@ -1210,11 +1238,11 @@ animation: wordAppear 5s linear forwards;
      
     }
     .header img {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         transition: transform 5s ease-in-out; 
         justify-content: center;
-        margin-left: 625px;
+        margin-left: 30px;
     }
 
     /* Footer buttons now positioned at the bottom */
@@ -1434,7 +1462,7 @@ font:bold;
 .navbar {
   position: fixed;
   top: 20px;
-  left: 20px;
+  right: 20px;
   z-index: 1000;
   font-family: Arial, sans-serif;
 }
@@ -1446,13 +1474,14 @@ font:bold;
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
+  display: none;
 }
 
 .menu {
   display: none;
   position: absolute;
   top: 50px;
-  left: 0;
+  right: 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -1475,6 +1504,7 @@ font:bold;
   background-color: #f1f1f1;
 }
 
+
 }
     </style>
 </head>
@@ -1495,6 +1525,15 @@ font:bold;
                       <a href="#section7" onclick="closeMenu()">Contact</a>
                     </div>
                   </div>
+                  <div class="footer-buttons">
+                    <a href="#section2" >About Us</a>
+                    <a href="#section3" >Why Choose Fudar</a>
+                    <a href="#section4" >Founder's Talk</a>
+                    <a href="#section5" >Our Clients</a>
+                    <a href="#section6">EV Roadmap</a>
+                    <a href="#section7">Contact</a>
+
+                </div>
                   
                
                 
@@ -1721,14 +1760,19 @@ font:bold;
            
         });
         function toggleMenu() {
-  var menu = document.getElementById("menu");
+  const menu = document.getElementById("menu");
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 
-function closeMenu() {
-  var menu = document.getElementById("menu");
-  menu.style.display = "none";
-}
+// Close the menu if clicked outside
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("menu");
+  const hamburger = document.querySelector(".hamburger");
+
+  if (menu.style.display === "block" && !menu.contains(event.target) && !hamburger.contains(event.target)) {
+    menu.style.display = "none";
+  }
+});
 
 
         window.addEventListener("scroll", function() {
