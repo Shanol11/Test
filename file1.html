@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <title>Animated Sections</title>
+    
+  
+    <style>
+        @media screen and (max-width: 900px) { 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; margin: 0;
+    padding: 0; width:auto;}
+  body::before {
+content: ''; 
+position: fixed; 
+width: 110vw;
+height: 100%;
+background-image: url('https://wallpapers.com/images/hd/white-plain-background-e13fuhd0i4j2yxww.jpg') ; 
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+filter: blur(7px);
+z-index: -1;
+}
+
+
+  .section { width: 100vw; height: 1400px;  margin-top: 0; 
+    padding-top: 0;display : flex; align-items: center; justify-content: center; position: relative; }
+  .first-section {position:relative; display: flex;justify-content: center;align-items: center;color: rgb(7, 7, 7);font-size: 2.4rem;text-align: center;font-family:'Times New Roman', Times, serif ; flex-direction: column; /* Stack elements vertically */
+    
+      font-size: 1.5rem; 
+      height: auto; 
+       }
+  .show { opacity: 1; transform: translateY(0); }
+  .content-section {  display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100vw; height: 1500px; }
+  .content-box { max-width: 100%; text-align: left; opacity: 0; transition: all 0.8s ease-out; padding: 20px; }
+  #section2.content-section {  display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100vw; height: 1000px; }
+  #section2.content-box { border-radius: 8px;max-width: 100%; text-align: left; opacity: 0; transition: all 0.8s ease-out; padding: 20px; }
+  #section3.content-section {  display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100vw; height: 1000px; }
+  #section3.content-box { max-width: 100%; text-align: left; opacity: 0; transition: all 0.8s ease-out; padding: 20px; }
+ 
+  #section5.content-section {  display: flex; align-items: center; justify-content: center;  width: 100vw; height: 1000px; }
+  #section5.content-box { max-width: 100%; text-align: left; opacity: 0; transition: all 0.8s ease-out; padding: 20px;}
+  #section6.content-section {  display: flex; align-items: center; justify-content: center;  width: 100vw; height: 1000px; }
+  #section6.content-box { max-width: 100%; text-align: left; opacity: 0; transition: all 0.8s ease-out; padding: 20px;}
+  .image-box { width: 50vw; height: 100vh; background: gray; opacity: 0; transition: all 0.8s ease-out; }
+  .slide-in-left { transform: translateX(-100%); }
+  .slide-in-right { transform: translateX(100%); }
+  .slide-in { transform: translateX(0); opacity: 1;}
+  #section2 .text-content p{
+    text-align: left;
+    font-size: 18px;
+  }
+  #section3 .feature-list{
+    font-size: 18px;
+  }
+  #section3 .features{
+    border-radius: 8px;
+  }
+  
+  
+
+  #section2 .image-box {
+        width:80vw;
+        height: 120vh;
+        background: transparent;
+        margin-bottom: 100px;
+        margin-right: 20px;
+        opacity:1 ;
+        transition: all 0.8s ease-out;
+      background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+        background-image:url('https://i.postimg.cc/PxpDN84b/Adobe-Express-file.png');
+    }
+    #section3 .image-box {
+        width:80vw;
+        height: 50vh;
+        background: transparent;
+        margin-right: 20px;
+        margin-top: 30px;
+        opacity:1 ;
+        transition: all 0.8s ease-out;
+      background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+        background-image:url('https://i.postimg.cc/NfrFGNPF/Untitled-design-Photoroom.png');
+       
+    }
+    #section4 .image-box {
+        width:80vw;
+        height: 60vh;
+        background: transparent;
+        margin-right: 20px;
+      
+        opacity:1 ;
+        transition: all 0.8s ease-out;
+      background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+        background-image:url('https://i.postimg.cc/SsTZb8KW/Adobe-Express-file-1.png');
+        
+      
+   
+    }
+  .fifth-header {
+      position: absolute;
+      top: 10%;
+      padding: 80px;
+      font-size: 2rem;
+      color: white;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+     
+  }
+ 
+  .container {
+      width: 90%;
+      max-width: 1100px;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 0 auto; /* Center the container */
+      margin-bottom: 40px;
+      
+  }
+  .content-section:nth-child(2) .content-box {
+      border: 2px solid #66B032; 
+border-radius: 10px;        
+padding: 20px;             
+border-style: solid;
+border-color: #66B032;
+margin-left: 15px;
+
+
+}
+.content-section:nth-child(4) .content-box {
+      border: 2px solid #66B032; 
+border-radius: 10px;        
+padding: 20px;             
+border-style: solid;
+border-color: #66B032;
+margin-left: 15px;
+
+
+}
+
+  .image-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+  }
+  .text-content {
+      flex: 1;
+  }
+  .text-content h1 {
+      color: #222;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  .text-content h2 {
+      color: #0b0b0b;
+      font-size: 22px;
+      margin-bottom: 10px;
+  }
+  .text-content p {
+      color: #0f0f0f;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      text-align: left;
+      font-family: 'Times New Roman', Times, serif;
+     
+  }
+  /* Features Section */
+ .features {
+margin: 20px;
+border: 2px solid #66B032; 
+border-radius: 20px;
+padding: 30px;
+
+font-family: 'Times New Roman', Times, serif;
+
+
+ }
+.feature-list {
+list-style-type: none; 
+padding-left: 0; 
+font-size: 18px;
+line-height: 1.5;
+
+}
+
+.features h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+  .fifth-header h1 {
+      
+      color: rgb(5, 5, 5);
+      margin: 0;
+      font-size: 1.0em;
+      top: 2%;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      position: absolute;
+      
+  }
+  
+
+  .container1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 20px;
+      flex-wrap: wrap;
+      margin-top: 800px;
+      font-family: 'Times New Roman', Times, serif;
+    
+      
+  }
+  .client {
+      width: 250px;
+      height: 300px;
+      
+      padding: 20px;
+      border-radius: 15px;
+      border: 5px solid #66B032;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+  }
+  .client:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  }
+  .client img {
+      width: 200px;
+      height: 150px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      object-fit: contain;
+  }
+  .swiggy{
+      width: 250px;
+height: 350px;
+position: absolute;
+backface-visibility: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+background-color: #66B032;
+  }
+  
+  p {
+      font-size: 20px;
+      color:black;
+      line-height: 1.6;
+      text-align: center;
+  }
+  /* Each card flips individually */
+.client {
+width: 350px;
+height: 400px;
+perspective: 1000px; 
+}
+
+.client-card {
+width:250px;
+height: 400px;
+position: relative;
+transform-style: preserve-3d;
+transition: transform 0.6s;
+}
+
+/* Flip only when hovering over a specific card */
+.client:hover .client-card {
+transform: rotateY(180deg);
+
+}
+
+.client-front, .client-back {
+width: 100%;
+height: 100%;
+position: absolute;
+backface-visibility: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Front side */
+.client-front {
+background-color: #66B032;
+}
+
+/* Back side (Flipped) */
+.client-back {
+background-color: #66B032;
+color: white;
+transform: rotateY(180deg);
+}
+
+  .text-content1 h1 {
+      color: #222;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+  }
+  .text-content1 p {
+      color: #0f0f0f;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: left !important;
+  }
+  
+  
+
+
+  /* Adjust 768px as needed */
+  .first-section {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center;  /* Center horizontally */
+      text-align: center; /* Center text */
+      font-size: 1.5rem; /* Adjust font size for mobile */
+      height: auto; /* Adjust height as needed */
+      padding: 20px; /* Add some padding */
+  }
+
+  .dropdown-container {
+      flex-direction: column; /* Stack dropdowns */
+      align-items: center; /* Center dropdowns */
+      padding: 10px; /* Reduce padding */
+      gap: 20px;
+      margin-top: 50px;
+  }
+  .dropdown { opacity: 0; transform: translateY(-20px); transition: opacity 0.5s ease, transform 0.5s ease; margin-top: 5px; margin-left: 25
+        px; gap: 20px;  }
+    .show { opacity: 1; transform: translateY(0); }
+
+  .dropdown {
+      font-size: 1.2rem; /* Smaller dropdown font */
+      margin: 5px 0; /* Adjust margins */
+      margin-bottom: 20px; 
+  }
+ 
+
+  .description {
+      font-size: 1.6rem; /* Smaller description font */
+      top: auto; /* Remove absolute positioning */
+      left: auto; /* Remove absolute positioning */
+      transform: translateY(0); /* Remove vertical centering */
+      margin: 20px 0; /* Add top/bottom margins */
+      flex-direction: column; /* Stack words vertically */
+      align-items: center; /* Center words */
+      white-space: +normal; /* Allow text to wrap */
+      margin-top: 50px;
+      font-family: 'Times New Roman', Times, serif;
+  }
+  .description span {
+      font-size: 1.2rem;
+  }
+  .description span {
+opacity: 0;
+transform: translateX(-30px); /* Moves text from left */
+animation: wordAppear 5s linear forwards;
+}
+.description span:nth-child(1) { animation-delay: 1s; }
+.description span:nth-child(2) { animation-delay: 1.5s; }
+.description span:nth-child(3) { animation-delay: 2s; }
+.description span:nth-child(4) { animation-delay: 2.2s; }
+.description span:nth-child(5) { animation-delay: 2.4s; }
+.description span:nth-child(6) { animation-delay: 2.6s; }
+.description span:nth-child(7) { animation-delay: 3s; }
+
+@keyframes wordAppear {
+0% { opacity: 0; transform: translateX(-30px); }
+50% { opacity: 1; transform: translateX(1); } /* Fade in smoothly */
+100% { opacity: 1; transform: translateX(0); } /* Stay in place */
+}
+
+  .top-right-images {
+      position: fixed;
+      transform: translateY(-50%);
+      top:80%;
+      left: -200px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      animation: moveRight 5s linear forwards;
+  }
+  .top-right-images img {
+        width: 150px; /* Reduce size */
+        height: 150px; /* Reduce size */
+        animation: move-bike-small 5s linear infinite; /* Apply new animation */
+        margin-bottom: 400px;
+        position: relative;
+    
+    }
+    @keyframes move-bike-small {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(20px); } /* Reduce movement */
+        100% { transform: translateX(0); }
+    }
+  @keyframes moveRight {
+      0% { left: -200px; opacity: 1; }
+      100% { left: 100%; opacity: 1; }
+  }
+  .header {
+    position: fixed;  /* Keeps it at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+   
+    background-color: #66B032;
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    z-index: 1000;
+}
+
+
+  .header img {
+    width: 100px;
+    background: none;
+   /* Remove extra spacing */
+    position: absolute;
+    top: auto;
+    left: 0;
+    margin-bottom: 68px;
+    height: auto;
+    z-index: 1;
+    display: block; 
+    
+   /* Adjust padding if needed */
+}
+
+
+  .footer-buttons {
+      flex-direction: row; /* Stack buttons */
+      align-items: center; /* Center buttons */
+      margin-top: 20px;
+      gap: 18px;
+      flex-wrap: wrap;
+      z-index: 1001; 
+  }
+
+  .footer-buttons a {
+      font-size: 1rem; /* Smaller button font */
+      padding: 5px 10px; /* Add some padding to buttons */
+  
+      border-radius: 5px;
+      color:black;
+      text-decoration:none;
+
+  }
+
+
+.footer-buttons a:hover {
+opacity: 0.7;
+color: white;
+}
+
+/*contact us */
+footer {
+color: black;
+padding: 10px;
+text-align: center;
+margin-top: auto;
+font-size: 20px;
+backdrop-filter: blur(5px);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+font-family: 'Times New Roman', Times, serif;
+background-color: #fff;
+
+
+}
+
+.footer-top {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5px 0;
+flex-wrap: wrap;
+border-bottom: transparent;
+background-color: transparent;
+height: 7rem;
+text-align: center;
+
+}
+
+.footer-section {
+flex: 1;
+text-align: center;
+gap:40px;
+}
+
+
+.footer-left img {
+width: 120px;
+height: auto;
+margin-right: 10px;
+}
+
+.footer-info {
+display: flex;
+justify-content: space-around;
+width: 100%;
+left: 0;
+right: 0;
+padding: 5px;
+background-color: transparent;
+font-size: 20px;
+}
+
+.footer-info div {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.footer-info i {
+font-size: 20px;
+margin-bottom: 5px;
+color: #8f8989;
+}
+.footer-bottom {
+    border-top: 1px solid black; /* Adjust color as needed */
+    padding-top: 10px; /* Adds space between text and line */
+    text-align: center;
+}
+
+.footer-bottom p {
+padding: 2px;
+background-color: white;
+color:black;
+font-size:15px;
+height: 0.5cm;
+top:200px;
+}
+.footer-info p{
+  font-size: 15px;
+}
+
+
+.vision-mission-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 25px; 
+flex-wrap: wrap; 
+margin-top: 50px; 
+}
+.vision-mission-container h1{
+  margin-top: 30px;
+ margin-left: 115px;
+ font-weight: bold;
+ font-size: 2rem;
+ font-family: 'Times New Roman', Times, serif;
+}
+
+.circle-box {
+width: 320px; 
+height: 320px; 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: transparent; 
+border-radius: 50%; 
+box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3); 
+padding: 20px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease; 
+margin-left: 50px;
+
+}
+.ev-box {
+width: 320px; 
+height: 320px; 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: transparent; 
+border-radius: 50%; 
+box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3); 
+padding: 20px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease; 
+margin-left: 50px;
+
+}
+
+.circle-box:hover {
+transform: translateY(-5px); 
+box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+background-color: #66B032;
+}
+.ev-box:hover {
+transform: translateY(-5px); 
+box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+background-color:#66B032;
+}
+
+.circle-icon img {
+width: 50px;  
+height: 50px;
+margin-bottom: 15px; 
+}
+.ev-icon img {
+width: 70px; 
+height: 70px;
+margin-bottom: 15px; 
+}
+
+
+.circle-box h2 {
+font-size: 1.5rem;
+margin-bottom: 10px; 
+color: #080808;
+}
+
+.ev-box h2 {
+font-size: 1.5rem;
+margin-bottom: 10px; 
+color: #080808;
+}
+.circle-box p {
+font-size: 0.8rem;
+color: #080808;
+line-height: 1.5;
+justify-content: center;
+align-items: center;
+text-align: center;
+font:bold;
+}
+.ev-box p{
+font-size: 0.8rem;
+color: #080808;
+line-height: 1.5;
+justify-content: center;
+align-items: center;
+text-align: center;
+font:bold;
+
+}
+.circle-box {
+  margin-bottom: 20px; 
+}
+/* Adjust 768px as needed */
+.content-section {
+  flex-direction: column; /* Stack image and text */
+  align-items: center;  /* Center horizontally */
+}
+
+
+.text-content h1,
+.text-content h2,
+.text-content p,
+.text-content1 h1,
+.text-content1 p {
+  text-align: center;
+}
+
+.container1 { /* Make the client container responsive */
+  flex-direction: column; /* Stack clients vertically */
+  align-items: center;
+  gap: 50px;
+  padding: 20px;
+  margin-top: 200px;
+}
+
+.client {
+  width: 90%; /* Make clients responsive */
+  max-width: 350px; /* Set a maximum width for larger screens */
+  margin-bottom: 15px; /* Add space between clients */
+}
+.fifth-header {
+  left: 5px; /* Remove fixed left positioning */
+  top: 3%;
+}
+#ev {
+    margin-right: 100px;
+    position: relative;
+    top: 100px; /* Adjust the value as needed */
+    margin-top: -100px !important;
+    padding-top: 0 !important;
+    display: flex;
+    justify-content: center; /* Centers it */
+    width: 100%;
+    overflow: hidden; 
+    white-space: nowrap; /* Prevents line break */
+    margin: 0; /* Remove unwanted margin */
+}
+}
+@media screen and (min-width:1024px){
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; overflow-x: hidden; }
+    body::before {
+content: ''; 
+position: fixed; 
+width: 100vw;
+height: 100vh;
+background-image: url('https://wallpapers.com/images/hd/white-plain-background-e13fuhd0i4j2yxww.jpg'); 
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+filter: blur(10px);
+z-index: -1;
+}
+
+    .section { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+    .first-section {position:relative; display: flex;justify-content: center;align-items: center;color: rgb(7, 7, 7);font-size: 2.4rem;text-align: center;font-family:'Times New Roman', Times, serif ;}
+    .show { opacity: 1; transform: translateY(0); }
+    .content-section {  display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100vw; height: 100vh; }
+    .content-box { width: 800px; text-align: left; opacity: 0; transition: all 0.8s ease-out; padding: 20px; }
+    .image-box { width: 50vw; height: 100vh; background: gray; opacity: 0; transition: all 0.8s ease-out; }
+    .slide-in-left { transform: translateX(-100%); }
+    .slide-in-right { transform: translateX(100%); }
+    .slide-in { transform: translateX(0); opacity: 1;}
+    
+    .fifth-header {
+        position: absolute;
+        top: 10%;
+        padding: 80px;
+        font-size: 2rem;
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+    }
+   
+    .container {
+        width: 80%;
+        max-width: 1100px;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 40px;
+        
+    }
+    .content-section:nth-child(2) .content-box {
+        border: 2px solid #66B032; 
+border-radius: 8px;        
+padding: 20px;             
+border-style: solid;
+border-color: #66B032;
+margin-left: 15px;
+
+
+}
+
+    .image-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .text-content {
+        flex: 1;
+    }
+    .text-content h1 {
+        color: #222;
+        font-size: 28px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .text-content h2 {
+        color: #0b0b0b;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    .text-content p {
+        color: #0f0f0f;
+        font-size: 20px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        text-align: left;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    /* Features Section */
+   .features {
+margin: 20px;
+border: 2px solid #66B032; 
+border-radius: 20px;
+padding: 30px;
+font-family: 'Times New Roman', Times, serif;
+
+
+   }
+.feature-list {
+list-style-type: none; 
+padding-left: 0; 
+font-size: 20px;
+line-height: 1.5;
+
+}
+
+.features h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .fifth-header h1 {
+        
+        color: rgb(5, 5, 5);
+        margin: 0;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    .container1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 40px;
+        flex-wrap: wrap;
+        margin-top: 150px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .client {
+        width: 300px;
+        height: 400px;
+        
+        padding: 20px;
+        border-radius: 15px;
+        border: 5px solid #66B032;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .client:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    }
+    .client img {
+        width: 200px;
+        height: 150px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        object-fit: contain;
+    }
+    .swiggy{
+        width: 300px;
+height: 350px;
+position: absolute;
+backface-visibility: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+background-color: #66B032;
+    }
+    
+    p {
+        font-size: 20px;
+        color:black;
+        line-height: 1.6;
+        text-align: center;
+    }
+    /* Each card flips individually */
+.client {
+width: 350px;
+height: 400px;
+perspective: 1000px; 
+}
+
+.client-card {
+width:300px;
+height: 450px;
+position: relative;
+transform-style: preserve-3d;
+transition: transform 0.6s;
+}
+
+/* Flip only when hovering over a specific card */
+.client:hover .client-card {
+transform: rotateY(180deg);
+
+}
+
+.client-front, .client-back {
+width: 100%;
+height: 100%;
+position: absolute;
+backface-visibility: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Front side */
+.client-front {
+background-color: #66B032;
+}
+
+/* Back side (Flipped) */
+.client-back {
+background-color:#66B032;
+color: white;
+transform: rotateY(180deg);
+}
+
+    .text-content1 h1 {
+        color: #222;
+        font-size: 28px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .text-content1 p {
+        color: #0f0f0f;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: left;
+    }
+    .content-section:nth-child(4) .content-box {
+border: 2px solid #66B032;  
+border-radius: 8px;        
+padding: 20px;             
+border-style: solid;
+border-color: #66B032;
+margin-left: 15px;
+}
+.first-section::before {
+        content: ''; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+       
+        background-size: cover;
+        filter: blur(15px);
+        z-index: -1;
+    }
+
+    .dropdown-container { display: flex; gap: 5px; margin-top: 20px; padding-right: 20px; padding-left: 50px; }
+    .dropdown { opacity: 0; transform: translateY(-20px); transition: opacity 0.5s ease, transform 0.5s ease; margin-top: 5px; margin-left: 25
+        px;  }
+    .show { opacity: 1; transform: translateY(0); }
+
+    .content-section {
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .content-box {
+        width: 800px;
+        text-align: left;
+        opacity: 0;
+        transition: all 0.8s ease-out;
+    }
+
+  
+
+    #section2 .image-box {
+        width:580px;
+        height: 580px;
+        background: transparent;
+        margin-right: 20px;
+        margin-bottom:200px;
+        opacity:1 ;
+        transition: all 0.8s ease-out;
+      background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+        background-image:url('https://i.postimg.cc/PxpDN84b/Adobe-Express-file.png');
+    }
+    #section3 .image-box {
+        width:500px;
+        height: 500px;
+        background: transparent;
+        margin-right: 20px;
+        opacity:1 ;
+        transition: all 0.8s ease-out;
+      background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+        background-image:url('https://i.postimg.cc/NfrFGNPF/Untitled-design-Photoroom.png');
+       
+    }
+    #section4 .image-box {
+        width:580px;
+        height: 580px;
+        background: transparent;
+        margin-right: 20px;
+        opacity:1 ;
+        transition: all 0.8s ease-out;
+      background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+        background-image:url('https://i.postimg.cc/SsTZb8KW/Adobe-Express-file-1.png');
+        
+      
+   
+    }
+    .top-right-images {
+position: absolute;
+top: 50%;
+left: -200px; 
+display: flex;
+flex-direction: column;
+gap: 10px;
+animation: moveRight 4.8s linear forwards;
+}
+
+@keyframes moveRight {
+0% { left: -200px; opacity: 1; }
+40% { opacity: 1; } 
+100% { left: 110%; opacity: 0; } 
+}
+
+.description {
+font-size: 3rem;
+color: rgb(7, 7, 7);
+opacity: 1; 
+margin-top: 50px;
+position: absolute;
+top: 400px;
+left: 20%;
+transform: translateY(-50%);
+text-align: center;
+white-space: nowrap;
+display: flex;
+ transform: opacity 20ms ease;
+gap: 10px;
+}
+
+/* Word-by-word animation behind scooter */
+.description span {
+opacity: 0;
+transform: translateX(-30px); /* Moves text from left */
+animation: wordAppear 5s linear forwards;
+}
+
+/* Delay each word for perfect sync */
+
+.description span:nth-child(1) { animation-delay: 1s; }
+.description span:nth-child(2) { animation-delay: 1.5s; }
+.description span:nth-child(3) { animation-delay: 2s; }
+.description span:nth-child(4) { animation-delay: 2.2s; }
+.description span:nth-child(5) { animation-delay: 2.4s; }
+.description span:nth-child(6) { animation-delay: 2.6s; }
+.description span:nth-child(7) { animation-delay: 3s; }
+
+@keyframes wordAppear {
+0% { opacity: 0; transform: translateX(-30px); }
+50% { opacity: 1; transform: translateX(1); } /* Fade in smoothly */
+100% { opacity: 1; transform: translateX(0); } /* Stay in place */
+}
+
+
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 10px;
+        height: 250px;
+        transition: top 0.3s ease;
+    }
+
+    .slide-in-left { transform: translateX(-100%); }
+    .slide-in-right { transform: translateX(100%); }
+    .slide-in { transform: translateX(0); opacity: 1; }
+
+   
+
+    .top-right-images img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        animation: move-bike 5s linear infinite;
+    }
+
+    @keyframes move-bike {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(50px); }
+        100% { transform: translateX(0); }
+    }
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 200px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        padding: 10px 40px;
+        width: 100%;
+        z-index: 1000;
+        bottom: 80px;
+        background-color: #66B032;
+        height: 10%;
+     
+    }
+    .header img {
+        width: 120px;
+        height: auto;
+        transition: transform 5s ease-in-out; 
+    }
+
+    /* Footer buttons now positioned at the bottom */
+    .footer-buttons {
+position: absolute ; 
+bottom: 25px;
+left: 50%; 
+transform: translateX(-50%); 
+display: flex;
+gap: 30px; 
+
+}
+
+.footer-buttons a {
+color: rgb(7, 7, 7);
+font-size: 1.2rem;
+text-decoration: none;
+
+
+}
+
+.footer-buttons a:hover {
+opacity: 0.7;
+color: white;
+
+}
+/*contact us */
+footer {
+color: black;
+padding: 10px;
+text-align: center;
+margin-top: auto;
+font-size: 20px;
+backdrop-filter: blur(5px);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+font-family: 'Times New Roman', Times, serif;
+background-color: #fff;
+
+
+}
+
+.footer-top {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5px 0;
+flex-wrap: wrap;
+border-bottom: transparent;
+background-color: transparent;
+height: 7rem;
+text-align: center;
+
+}
+
+.footer-section {
+flex: 1;
+text-align: center;
+}
+
+.footer-left img {
+width: 120px;
+height: auto;
+margin-right: 10px;
+}
+
+.footer-info {
+display: flex;
+justify-content: space-around;
+width: 100%;
+left: 0;
+right: 0;
+padding: 5px;
+background-color: transparent;
+}
+
+.footer-info div {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.footer-info i {
+font-size: 20px;
+margin-bottom: 5px;
+color: #8f8989;
+}
+.footer-bottom {
+    border-top: 1px solid black; /* Adjust color as needed */
+    padding-top: 10px; /* Adds space between text and line */
+    text-align: center;
+}
+.footer-bottom p {
+padding: 2px;
+background-color: white;
+color:black;
+font-size: 20px;
+height: 0.5cm;
+}
+
+
+.vision-mission-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px; 
+flex-wrap: wrap; 
+margin-top: 50px; 
+}
+
+.circle-box {
+width: 400px; 
+height: 400px; 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: transparent; 
+border-radius: 50%; 
+box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3); 
+padding: 20px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+}
+.ev-box {
+width: 400px; 
+height: 400px; 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: transparent; 
+border-radius: 50%; 
+box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3); 
+padding: 20px;
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+}
+
+.circle-box:hover {
+transform: translateY(-5px); 
+box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+background-color: #66B032;
+}
+.ev-box:hover {
+transform: translateY(-5px); 
+box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+background-color: #66B032;
+}
+
+
+
+.circle-icon img {
+width: 50px;  
+height: 50px;
+margin-bottom: 15px; 
+}
+.ev-icon img {
+width: 70px; 
+height: 70px;
+margin-bottom: 15px; 
+}
+
+
+.circle-box h2 {
+font-size: 1.5rem;
+margin-bottom: 10px; 
+color: #080808;
+}
+
+.ev-box h2 {
+font-size: 1.5rem;
+margin-bottom: 10px; 
+color: #080808;
+}
+.circle-box p {
+font-size: 1rem;
+color: #080808;
+line-height: 1.5;
+justify-content: center;
+align-items: center;
+text-align: center;
+font:bold;
+}
+.ev-box p{
+font-size: 1rem;
+color: #080808;
+line-height: 1.5;
+justify-content: center;
+align-items: center;
+text-align: center;
+font:bold;
+
+}
+
+
+
+.circle-box {
+    margin-bottom: 20px; 
+}
+
+.fifth-header h2{
+    margin-right: 300px;
+    color: #080808;
+   
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+#ev {
+    margin-right: 250px;
+    position: relative;
+    top: -20px; /* Adjust the value as needed */
+    margin-top: -100px !important;
+    padding-top: 0 !important;
+}
+
+}
+    </style>
+</head>
+<body>
+    <section class="section first-section">
+        <div class="dropdown-container">
+            <header class="header">
+                <img src="https://i.postimg.cc/x11jJ9T6/PHOTO-2025-02-12-19-25-06-removebg-preview.png" alt="Fudar Logo">
+                 <!-- Footer Buttons at the Bottom -->
+                 <div class="footer-buttons">
+                    <a href="#section2" >About Us</a>
+                    <a href="#section3" >Why Choose Fudar</a>
+                    <a href="#section4" >Founder's Talk</a>
+                    <a href="#section5" >Our Clients</a>
+                    <a href="#section6">EV Roadmap</a>
+                    <a href="#section7">Contact</a>
+
+                </div>
+               
+                
+              </header>
+            
+              
+              <div class="top-right-images">
+                <img src="https://i.postimg.cc/bNLyz2qs/c1e2818612a947ac94ef7b6aff3f8ece-removebg-preview.png" alt="Image 1">
+              </div>
+            
+           
+              <section class="section first-section">
+                <div class="content-container">
+                    <div class="dropdown-container">
+                        <div class="dropdown" id="drop1"><b>EXPLORE.</b></div>
+                        <div class="dropdown" id="drop2"><b>CHOOSE.</b></div>
+                        <div class="dropdown" id="drop3"><b>DRIVE ELECTRIC.</b></div>
+                    </div>
+                    <div id="description" class="description">
+                        <span><b>Fudar -</b></span>
+                        <span><b>Where</b></span>
+                        <span><b>the</b></span>
+                        <span><b>Future</b></span>
+                        <span><b>of</b></span>
+                        <span><b>Mobility</b></span>
+                        <span><b>Begins.</b></span>
+                    </div>
+                   
+                </div>
+                
+               
+              
+        </div>
+    </section>
+   
+    <section class="section content-section" id="section2">
+        <div class="image-box slide-in-left"></div>
+        <div class="content-box slide-in-left">
+            <div class="text-content">
+                <h1>About Us</h1>
+                <p>Fudar Wheels is a pioneering electric vehicle (EV) fleet management company operating in Tier 2 and Tier 3 cities across India. We specialize in sustainable and efficient transportation solutions, catering to the growing demands of e-commerce, logistics, and corporate mobility.</p>
+                    <p>Our fleet of electric vehicles is dedicated to eco-friendly last-mile delivery and cab services, ensuring cost-effective, reliable, and environmentally responsible transport options.</p>
+                    <p>At Fudar Wheels, we go beyond conventional fleet management by integrating advanced safety features. Our mission is to revolutionize urban mobility in underserved regions while contributing to a greener future.</p>
+                    <p>With a growing team of gig workers and a fleet of EVs, we are committed to driving innovation and sustainability in India’s transportation sector.</p>
+            </div>
+       
+        </div>
+    </div>
+    
+       
+    </section>
+    
+    
+  
+
+
+
+    <section class="section content-section" id="section3">
+        <div class="content-box slide-in-right">
+            <!-- Features Section -->
+    <div class="features">
+        <h2>Why Choose Fudar?</h2>
+        <ul class="feature-list">
+            <li><i class="fa-solid fa-leaf"></i>&nbsp;&nbsp;<b>Eco-Friendly Operations –</b> 100% electric fleet to reduce emissions and <br>environmental impact.</li>
+            <li><i class="fa-solid fa-indian-rupee-sign"></i> &nbsp;&nbsp;&nbsp;<b>Cost-Effective Solutions – </b>Lower operational costs compared to fuel-based logistics.</li>
+            <li><i class="fa-solid fa-shield-halved"></i> &nbsp;&nbsp;<b>Enhanced Safety – </b>Advanced safety features for both delivery and cab services.</li>
+            <li><i class="fa-solid fa-users"></i> &nbsp;&nbsp;<b>Trusted by Industry Leaders – </b>Proud partners of top e-commerce and logistics companies.</li>
+            <li><i class="fa-solid fa-briefcase"></i>&nbsp;&nbsp;<b> Supporting Gig Economy – </b>Providing employment opportunities for delivery and ride-hailing professionals.</li>
+        </ul>
+    </div>
+        </div>
+        <div class="image-box slide-in-right"></div>
+
+    </section>
+    <section class="section content-section" id="section4">
+        <div class="image-box slide-in-left"></div>
+            
+        
+        <div class="content-box slide-in-left">
+           
+                <div class="text-content1">
+                    <h1>Founder's Talk</h1>
+                    <p>The shift towards sustainable mobility is gaining momentum in India, but a significant gap remains in Tier 2 and Tier 3 cities where electric vehicle (EV) adoption is still in its infancy. At Fudar , we recognized this challenge and saw an opportunity to bring cutting-edge EV fleet management to these underserved regions.</p>
+                    <p>Fudar  was founded with a vision to revolutionize last-mile delivery and urban transportation through an efficient and sustainable EV fleet. We identified a crucial need in smaller cities, where logistics and transportation businesses struggle with high fuel costs and unreliable delivery networks. Our mission is to provide cost-effective and eco-friendly solutions while ensuring seamless operations for businesses and commuters alike.</p>
+                    <p>Currently, Fudar Wheels manages a fleet of electric vehicles, primarily focusing on logistics and last-mile deliveries. We have partnered with Flipkart and Big Basket to facilitate efficient, green deliveries, and our vehicles are operated by gig workers who benefit from flexible work opportunities.</p>
+                    <p>Operating an EV fleet in smaller cities comes with its own set of challenges–charging infrastructure, range anxiety, and driver training being the major ones. However, we see these as opportunities to innovate and create infrastructure that benefits both businesses and individuals. By working closely with e-commerce, logistics, and BPO companies, we aim to build a sustainable ecosystem that makes electric mobility accessible and reliable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section class="section fifth-section" id="section5">
+        <div class="fifth-header">
+            <h1>Our Clients</h1>
+        </div>
+        <div class="container1">
+            <div class="client">
+                <div class="client-card">
+                    <div class="client-front">
+                        <img src="https://cdn2.iconfinder.com/data/icons/social-icons-circular-color/512/flipkart-512.png" alt="Flipkart Logo">
+                        <h2>Flipkart</h2>
+                    </div>
+                    <div class="client-back">
+                        <p>Flipkart became our client in 2025.</p>
+                        <p>We provide sustainable EV fleet solutions for Flipkart's logistics.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="client">
+                <div class="client-card">
+                    <div class="client-front">
+                        <img src="https://logos-download.com/wp-content/uploads/2021/01/Bigbasket_Logo.png" alt="BigBasket Logo">
+                        <h2>BigBasket</h2>
+                    </div>
+                    <div class="client-back">
+                        <p>BigBasket partnered with us in 2024.</p>
+                        <p>We ensure fast and eco-friendly last-mile delivery services.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="client">
+                <div class="client-card">
+                    <div class="swiggy">
+                        <img src="https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.png" alt="BigBasket Logo">
+                        <h2>Swiggy</h2>
+                    </div>
+                    <div class="client-back">
+                        <p>Swiggy partnered with us in 2025.</p>
+                        <p>We ensure fast and eco-friendly last-mile delivery services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    
+       
+    </section>
+    <section class="section sixth-section" id="section6">
+       
+           
+        
+      <div class="vision-mission-container"> 
+        <div class="fifth-header">
+            <h1 id="ev">EV ROADMAP</h1>
+        </div>
+                    <div class="circle-box vision-box"> 
+                        <div class="circle-icon"> 
+                            <img src="https://img.icons8.com/ios/50/000000/idea--v1.png" alt="Vision Icon"> </div> 
+                            <h2>Vision</h2> 
+                            <p>At Fudar, our vision is to redefine the future of transportation by making sustainable mobility accessible to all.</p> 
+                        </div> 
+                        <div class="circle-box mission-box"> 
+                            <div class="circle-icon"> 
+                                <img src="https://img.icons8.com/ios/50/000000/goal.png" alt="Mission Icon"> </div> 
+                                <h2>Mission</h2> 
+                                <p>Our mission is to empower businesses and individuals with efficient, affordable, 
+                                    and eco-friendly electric vehicle solutions that drive positive environmental and social impact.</p> 
+                                </div> 
+                         
+                            <div class="ev-box ev-box">
+                               
+                                    <div class="ev-icon">
+                                        <img src="https://i.postimg.cc/FKHpjZN3/Adobe-Express-file-2.png" alt="Mission Icon">
+                                    </div>
+                                    <h2>Join the EV Revolution</h2>
+                                    <p>Be a part of the green mobility movement with Fudar! Whether you are a business looking 
+                                        for reliable fleet management, a driver seeking opportunities, or an investor interested 
+                                        in sustainable ventures, collaborate with us.</p>
+                                
+                            </div>
+                        </div>
+                            
+                
+        
+    </section>
+    
+       
+    </section>
+</section>
+<footer id="section7">
+    <div class="footer-top">
+        <div class="footer-section footer-info">
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Location</h3>
+                <p>Moodbidri 574227</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-phone"></i>
+                <h3>Phone</h3>
+                <p>+91 9482655970</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Email</h3>
+                <p>Info@fudar.in</p>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Fudar | All Rights Reserved</p>
+    </div>
+</footer>
+</section>
+   
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => document.getElementById("drop1").classList.add("show"), 300);
+            setTimeout(() => document.getElementById("drop2").classList.add("show"), 600);
+            setTimeout(() => document.getElementById("drop3").classList.add("show"), 900);
+            setTimeout(() => document.getElementById("description").classList.add("show"), 1200);
+
+            // Scroll automatically to section 2 after a short delay
+           
+        });
+
+        window.addEventListener("scroll", function() {
+            document.querySelectorAll(".content-section").forEach((section) => {
+                let imageBox = section.querySelector(".image-box");
+                let contentBox = section.querySelector(".content-box");
+                if (window.scrollY >= section.offsetTop - window.innerHeight / 2) {
+                    imageBox.classList.add("slide-in");
+                    contentBox.classList.add("slide-in");
+                }
+            });
+            window.history.scrollRestoration = "manual"; // Prevents browser from restoring scroll position
+    window.onload = function () {
+        window.scrollTo(0, 0); // Forces scroll to top on refresh
+    };
+            
+           
+        });
+        
+
+    </script>
+</body>
+</html>
